@@ -7,7 +7,7 @@ namespace WebApplication1.DBModels
     {
         public int BalanceId { get; set; }
         public int AccountId { get; set; }
-        public decimal? Balance1 { get; set; }
+        public decimal? Amount { get; set; }
 
         public virtual Account Account { get; set; } = null!;
     }

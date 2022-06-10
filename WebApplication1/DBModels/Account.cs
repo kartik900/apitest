@@ -17,6 +17,7 @@ namespace WebApplication1.DBModels
         public int? AccountType { get; set; }
         public bool? IsActive { get; set; }
         public DateTime? CreatedOn { get; set; }
+        public string? Ifsccode { get; set; }
 
         public virtual ICollection<Balance> Balances { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }

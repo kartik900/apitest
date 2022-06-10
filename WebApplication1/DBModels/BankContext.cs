@@ -41,6 +41,11 @@ namespace WebApplication1.DBModels
                 entity.Property(e => e.AccountHolderName).HasMaxLength(50);
 
                 entity.Property(e => e.CreatedOn).HasColumnType("date");
+
+                entity.Property(e => e.Ifsccode)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("IFSCCode");
             });
 
             modelBuilder.Entity<Balance>(entity =>
@@ -51,9 +56,7 @@ namespace WebApplication1.DBModels
 
                 entity.Property(e => e.AccountId).HasColumnName("AccountID");
 
-                entity.Property(e => e.Balance1)
-                    .HasColumnType("money")
-                    .HasColumnName("Balance");
+                entity.Property(e => e.Amount).HasColumnType("money");
 
                 entity.HasOne(d => d.Account)
                     .WithMany(p => p.Balances)
@@ -109,9 +112,7 @@ namespace WebApplication1.DBModels
             {
                 entity.ToTable("User");
 
-                entity.Property(e => e.UserId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("UserID");
+                entity.Property(e => e.UserId).HasColumnName("UserID");
 
                 entity.Property(e => e.AddressCity).IsUnicode(false);
 

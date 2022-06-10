@@ -11,7 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<BankContext>(options => options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
-builder.Services.AddTransient<IAccountRepository, AccountRepository>();
+builder.Services.AddTransient<IUserAccountManagementRepo, UserAccountManagementRepo>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
